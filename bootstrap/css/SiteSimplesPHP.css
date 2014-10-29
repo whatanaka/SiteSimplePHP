@@ -1,0 +1,11 @@
+
+/*
+Fixa o rodape no final do site
+*/
+.footer {
+  background-color:#F5F5F5;
+  bottom:0;
+  height:25px;
+  position:absolute;
+  width:100%;
+}
