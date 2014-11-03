@@ -1,7 +1,7 @@
 <!-- Corpo -->
     <div class="container">
       <h2>Formulário para Contato</h2>
-      <form role="form" action="index.php?arquivo=enviar.php" method="post">
+      <form role="form" action="/enviar" method="post">
         <div class="form-group">
           <label for="nome">Nome:</label>
           <input type="text" class="form-control" placeholder="Campo para Nome" name="nome" required>

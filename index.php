@@ -16,29 +16,26 @@
 
   <body>
 
-  <?php require_once('menu.php'); 
+<?php 
+  require_once('functions.php'); 
+  
+  //parse_url — Interpreta uma URL e retorna os seus componentes
+  $rota=parse_url("http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']);
 
-  // Lista dos arquivos validosß
-  $validos = array('home.php','empresa.php', 'produtos.php', 'servicos.php', 'contato.php', 'enviar.php');
+  //separa o caminho pelo "/"
+  $caminho=explode("/",$rota['path']);
 
-  // Se $_GET[''] esta defido e se o valor faz parte da lista dos arquivos validos
-  if (isset($_GET['arquivo']) AND (array_search($_GET['arquivo'], $validos) !== false)) {
-    // Pega o valor da variável $_GET['arquivo']
-    $arquivo = $_GET['arquivo'];
+  //seleciona o item de interesse
+  /// Caso caminho for vazio, substituir por "home"
+  $item =($caminho[1]=="") ? 'home':$caminho[1];
+
+  $arquivo_existe = check_rota($item);
+  if ($arquivo_existe != "") {
+      require_once('menu.php'); 
+      require_once($arquivo_existe); // Inclui o conteudo do arquivo
   } else {
-    // Caso contrario, mostra a pagina principal
-    $arquivo = 'home.php';
-  }
-
-  if (file_exists($arquivo ) ){
-    require_once($arquivo); // Inclui o conteudo do arquivo
-  } else {
-    //Mensagem de quando houver algum problema na exibicao dos arquivos do sistema  
-    echo '<div class="container">';
-    echo '  <div class="jumbotron">';
-    echo '    <p>Desculpe-nos, conteúdo não disponível no momento. Por favor, tente mais tarde.</p> ';
-    echo '  </div>';
-    echo '</div>';
+      http_response_code(404);
+      require_once("404.php");
   }
 ?>
 
