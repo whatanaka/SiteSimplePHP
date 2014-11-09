@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="jumbotron">
+		<h1>Site Simples em PHP !</h1>
+		<p>Primeiro projeto PHP.</p>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+###CONTEUDO###
+		<div class="clearfix visible-lg"></div>
+	</div>
+</div>

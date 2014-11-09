@@ -1,0 +1,15 @@
+   <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Site Simples PHP!</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav">
+            ###CONTEUDO###
+          </ul>
+          <form class="navbar-form navbar-left" action="/pesquisa" method="post">
+            <input type="text" class="form-control col-lg-8" placeholder="Busca no Site" name="chave">
+          </form>
+       </div>
+      </div>
+    </nav>

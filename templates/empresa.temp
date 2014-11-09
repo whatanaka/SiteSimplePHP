@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+    	<div class="col-md-4">
+ 			<img width=300 src="##FOTO_EMPRESA##" class="img-polaroid">        
+		</div>
+        <div class="col-md-4"> 
+        	<p>##DESCRICAO_EMPRESA##</p>
+        </div>
+        <div class="col-md-4"> 
+			<address>
+				<strong>##NOME_EMPRESA##</strong><br>
+			  	##ENDERECO1_EMPRESA##<br>
+			  	##ENDERECO2_EMPRESA##  ##CIDADE_EMPRESA##, ##ESTADO_EMPRESA## ##ZIP_EMPRESA##<br>
+			  	<abbr title="Phone">Tel:</abbr> ##TEL_EMPRESA##
+			</address>
+
+			<address>
+				<strong>E-mail</strong><br>
+			  	<a href="mailto:##EMAIL_EMPRESA##">##EMAIL_EMPRESA##</a>
+			</address>        
+		</div>
+	</div>
+	<div class="clearfix visible-lg"></div>
+  
+</div>

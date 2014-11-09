@@ -2,8 +2,9 @@
 <html>
   <head>
     <title>Site Simples PHP</title>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="bootstrap/css/SiteSimplesPHP.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,8 +32,17 @@
 
   $arquivo_existe = check_rota($item);
   if ($arquivo_existe != "") {
-      require_once('menu.php'); 
-      require_once($arquivo_existe); // Inclui o conteudo do arquivo
+      //require_once('menu.php'); 
+      echo utf8_encode(view_menu($item));
+      if ($item=='home') {
+        echo utf8_encode(view_home());
+      }else if ($item=='empresa'){
+        echo utf8_encode(view_empresa());
+      }else if ($item=='produtos'){
+        echo utf8_encode(view_produtos());
+      }else {
+        require_once($arquivo_existe); // Inclui o conteudo do arquivo
+      }
   } else {
       http_response_code(404);
       require_once("404.php");
@@ -40,9 +50,11 @@
 ?>
 
 <!-- Rodape -->
-<div class="footer">
-    <div class="container">
-      <p class="text-center">Todos os direitos reservados - &copy; <?php date_default_timezone_set('UTC');echo date("Y");?></p>
+  <div class="col-md-12">
+    <div class="footer">
+      <div class="container">
+        <p class="text-center">Todos os direitos reservados - &copy; <?php //date_default_timezone_set('UTC');echo date("Y");?></p>
+      </div>
     </div>
   </div>
   <script src="bootstrap/js/jquery-1.10.2.min.js"></script>
