@@ -44,8 +44,12 @@
         require_once($arquivo_existe); // Inclui o conteudo do arquivo
       }
   } else {
-      http_response_code(404);
-      require_once("404.php");
+      if ($item=='fixture') {
+         require_once("fixture.php"); // Inclui o conteudo do arquivo
+      } else {
+        http_response_code(404);
+        require_once("404.php");
+      }
   }
 ?>
 

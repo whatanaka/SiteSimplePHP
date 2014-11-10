@@ -1,3 +1,4 @@
+<div class="container">
 <?php
 
 require_once('functions.php'); 
@@ -114,5 +115,5 @@ echo " - OK</br>";
 ///// FIM
 ///////////////////////////////////////
 echo "#### CONCLUIDO ####\n";
-
-
+?>
+</div>
