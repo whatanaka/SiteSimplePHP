@@ -1,6 +1,6 @@
 <div class="container">
 <?php
-
+echo "aqui";
 require_once('functions.php'); 
 
 ////////////////////////////////////////
@@ -30,6 +30,9 @@ echo "Removendo tabela produtos";
 $conn->query("DROP TABLE IF EXISTS produtos;");
 echo " - OK</br>";
 
+echo "Removendo tabela login";
+$conn->query("DROP TABLE IF EXISTS login;");
+echo " - OK</br>";
 
 ////////////////////////////////////////
 ///// CRIANDO TABELAS
@@ -84,6 +87,14 @@ $conn->query("CREATE TABLE produtos (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;");
 echo " - OK</br>";
 
+echo "Criando tabela login";
+$conn->query("CREATE TABLE `login` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'id do registro de contas',
+  `login` varchar(45) NOT NULL COMMENT 'login do usuario',
+  `password` varchar(200) NOT NULL COMMENT 'password do usuario',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='tabela de login';");
+echo " - OK</br>";
 
 ////////////////////////////////////////
 ///// INSERINDO DADOS NAS TABELAS
@@ -110,6 +121,12 @@ $smt = $conn->prepare("INSERT INTO produtos VALUES (1,'0001','Bio-Matic Fingerpr
 $smt->execute();
 echo " - OK</br>";
 
+
+echo "Inserindo dados na tabale login";
+$senha = password_hash("123456",PASSWORD_DEFAULT);
+$smt = $conn->prepare("INSERT INTO login VALUES (1,'admin','{$senha}');");
+$smt->execute();
+echo " - OK</br>";
 
 ////////////////////////////////////////
 ///// FIM
